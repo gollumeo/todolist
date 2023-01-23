@@ -1,12 +1,14 @@
 <?php
 namespace App\config;
 
-// Database connection settings
-define('DB_HOST', 'db-todolist.cld0mu6jdw4b.eu-west-3.rds.amazonaws.com');
-define('DB_NAME', 'db-todolist');
-define('DB_USER', 'admin');
-define('DB_PASS', 'K35zNf7ACwwDSUcvh6F5');
-define('DB_PORT', '3306');
+class Config{
 
-// Other config options
-define('DEBUG_MODE', true);
+// Database connection settings
+static $DB_HOST = 'db-todolist.cld0mu6jdw4b.eu-west-3.rds.amazonaws.com';
+static $DB_NAME = 'todolist';
+static $DB_USER = 'admin';
+static $DB_PASS = 'K35zNf7ACwwDSUcvh6F5';
+static $DB_PORT = '3306';
+static $DEBUG_MODE = true;
+    
+}

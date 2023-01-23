@@ -39,7 +39,7 @@ class UserRepository
 
     public function create($username, $user_email, $password)
     {
-        $query = 'INSERT INTO users (username, email, password) VALUES (:username, =email, :password)';
+        $query = 'INSERT INTO users (username, email, password) VALUES (:username, :email, :password)';
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $user_email);
@@ -48,7 +48,7 @@ class UserRepository
     }
     public function update($id, $username, $user_email, $password)
     {
-        $query = 'UPDATE users SET username = :username, email=:email, password = :password WHERE id = :id';
+        $query = 'UPDATE users SET username = :username, email=:email, password=:password WHERE id = :id';
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':username', $username);
