@@ -22,7 +22,7 @@ $router->run();
 
 /* $router->get('/create', function () {
     (new TaskController)->create();
-});
+}); 
 
 $router->run();
 
@@ -30,4 +30,4 @@ $router->get('/', function () {
     (new HomeController)->header();
 });
 
-$router->run();
+$router->run(); */
