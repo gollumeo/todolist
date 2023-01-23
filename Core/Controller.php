@@ -24,4 +24,9 @@ class Controller
         extract($data);
         require_once(__ROOT__ . '/Resources/views/' . $view . '.php');
     }
+
+    public function viewShared($view, $data = []) {
+        extract($data);
+        require_once(__ROOT__ . '/Resources/views/shared' . $view . '.php');
+    }
 }

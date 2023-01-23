@@ -25,3 +25,9 @@ $router->get('/create', function () {
 });
 
 $router->run();
+
+$router->get('/', function () {
+    (new HomeController)->header();
+});
+
+$router->run();

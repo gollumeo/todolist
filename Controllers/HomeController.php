@@ -11,10 +11,19 @@ class HomeController extends Controller
     */
     public function home()
     {
-        return $this->viewHome('home',["name" => "Guest"]);
+        return $this->viewHome('home', ["name" => "Guest"]);
     }
 
-    public function show() {
+    public function show()
+    {
         return $this->viewTask('show');
     }
+
+    // public function header() {
+    //     return $this->viewShared('header');
+    // }
+
+    // public function footer() {
+    //     return $this->viewShared('footer');
+    // }
 }
