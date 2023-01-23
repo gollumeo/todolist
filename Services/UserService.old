@@ -72,14 +72,11 @@ class UserService
         if (empty($oldPassword) || empty($newPassword) || empty($confirmPassword)) {
             return 'All fields are required';
         }
-
         if ($newPassword !== $confirmPassword) {
             return 'New password and confirmation do not match';
         }
-
         // Find the user by id
         $user = $this->userRepository->findById($id);
-
         // Check if user exists and verify the old password
         if ($user && password_verify($oldPassword, $user['password'])) {
             // Hash the new password
