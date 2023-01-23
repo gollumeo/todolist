@@ -1,0 +1,11 @@
+version: 1
+backend:
+  phases:
+    build:
+      commands:
+        - 'composer install --no-dev --optimize-autoloader'
+        - 'cp -r ./* public/'
+  artifacts:
+    baseDirectory: public
+    files:
+      - '**/*'
