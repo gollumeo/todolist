@@ -4,8 +4,18 @@ backend:
     build:
       commands:
         - 'composer install --no-dev --optimize-autoloader'
-        - 'cp -r ./* public/'
+        - 'cp -r dist/* public/'
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install
+    build:
+      commands: npm run build
   artifacts:
-    baseDirectory: public
+    baseDirectory: 'public'
     files:
       - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
