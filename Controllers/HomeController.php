@@ -9,8 +9,12 @@ class HomeController extends Controller
     /*
     * return view
     */
-    public function index()
+    public function home()
     {
-        return $this->view('welcome',["name" => "Major"]);
+        return $this->viewHome('home',["name" => "Guest"]);
+    }
+
+    public function show() {
+        return $this->viewTask('show');
     }
 }
