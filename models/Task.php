@@ -1,4 +1,7 @@
 <?php
+
+namespace App\models;
+
 class Task
 {
     private $id;

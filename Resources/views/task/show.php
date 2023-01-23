@@ -12,7 +12,7 @@
 </head>
 <body>
     <a href="/">Click!</a>
+    <h2 class="text-2xl text-center"><?php print_r($task_list); ?></h2>
 </body>
 </html>
 
-<h2 class="text-2xl text-center">Lalala</h2>

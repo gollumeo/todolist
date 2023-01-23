@@ -1,5 +1,6 @@
 <?php
-require_once 'core/Database.php';
+
+use App\Core\Database;
 
 class UserRepository
 {

@@ -1,6 +1,8 @@
 <?php
-include_once 'core/Database.php';
-include_once './models/Task.php';
+namespace App\repositories;
+use App\Core\Database;
+use App\models\Task;
+use PDO;
 
 class TaskRepository
 {
@@ -11,11 +13,13 @@ class TaskRepository
         $this->db = Database::getInstance()->getConnection();
     }
 
-    public function findAll()
+    public function findAll($user_id)
     {
-        $query = 'SELECT * FROM tasks';
+        $query = 'SELECT * FROM tasks WHERE user_id = :user_id';
         $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
+        //return $this->db;
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

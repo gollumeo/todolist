@@ -1,5 +1,8 @@
 <?php
-include_once 'repositories/TaskRepository.php';
+
+namespace App\Services;
+use App\Repositories\TaskRepository;
+use App\models\Task;
 
 class TaskService
 {

@@ -1,4 +1,5 @@
 <?php
+namespace App\config;
 
 // Database connection settings
 define('DB_HOST', 'db-todolist.cld0mu6jdw4b.eu-west-3.rds.amazonaws.com');
