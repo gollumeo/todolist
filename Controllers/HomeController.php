@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Core\Controller;
+
 
 class HomeController extends Controller
 {
@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         return $this->viewHome('home', ["name" => "Guest"]);
     }
-
+    
     public function show()
     {
         return $this->viewTask('show');

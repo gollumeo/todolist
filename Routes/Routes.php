@@ -15,12 +15,12 @@ $router->get('/', function() {
 $router->run();
 
 $router->get('/show', function() {
-    (new HomeController)->show();
+    (new TaskController)->show();
 });
 
 $router->run();
 
-$router->get('/create', function () {
+/* $router->get('/create', function () {
     (new TaskController)->create();
 });
 

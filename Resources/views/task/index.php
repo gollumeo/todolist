@@ -32,7 +32,7 @@
         </section>
     </main>
     <footer class="flex flex-row w-[100%] bg-slate-800 p-3 shadow-2xl shadow-slate-800/60 justify-center items-center">
-        <nav class="w-auto flex gap-6 text-lg items-center justify-center flex flex-col">
+        <nav class="w-auto flex gap-6 text-lg items-center justify-center flex-col">
             <div class="items flex gap-6 items  text-sm text-center">© Jonathan Manes & Pierre Mauriello | BeCode - Keller 5 - 2023<br>All Rights Reserved</div>
         </nav>
     </footer>

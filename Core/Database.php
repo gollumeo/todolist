@@ -1,13 +1,15 @@
 <?php
-require_once 'config/config.php';
+namespace App\Core;
+use PDO;
+use PDOException;
 
 class Database {
     private static $instance;
     private $conn;
 
-    private function __construct() {
+    private function __construct() {            
         try {
-            $this->conn = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+            $this->conn = new PDO('mysql:host=' . 'db-todolist.cld0mu6jdw4b.eu-west-3.rds.amazonaws.com' . ';dbname=' . 'todolist', 'admin', 'K35zNf7ACwwDSUcvh6F5');
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch(PDOException $e) {
             echo 'Connection Error: ' . $e->getMessage();
