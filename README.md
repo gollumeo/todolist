@@ -9,7 +9,7 @@ composer install
 2. Launch the project
 
 ```terminal
-php -S localhost:8000 -t public 
+php -S localhost:8000 -t public
 ```
 
 

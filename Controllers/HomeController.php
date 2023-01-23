@@ -11,6 +11,6 @@ class HomeController extends Controller
     */
     public function index()
     {
-        return $this->view('welcome',["name" => "Major"]);
+        return $this->view('welcome',["name" => "Major, Golluméo"]);
     }
 }
