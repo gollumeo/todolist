@@ -16,7 +16,7 @@
 <body class="bg-slate-900 flex flex-col min-h-[100vh] space-between  items-center justify-center">
     <?php include '..\Resources\views\shared\header.php'; ?>
 
-    <main class="flex flex-col mb-auto mt-20 m-auto text-gray-50 w-screen  items-center justify-center">
+    <main class="flex flex-col mb-auto mt-20 m-auto text-gray-50 w-4/5 items-center justify-center">
         <h2 class="text-2xl text-center text-gray-50">List of tasks</h2>
         <?php if (isset($task_list)) {
             foreach ($task_list as $task) { ?>
@@ -27,7 +27,7 @@
                 <p class="p-5"> <?php echo $task['task'] ?></p><hr>
                 <form method="post" action="/delete-task">
                     <input type="text" hidden name="id" value="<?php echo $task['id'] ?>">
-                    <input type="submit" class="p-5" value="Delete" class="background-slate-800">
+                    <input type="submit" class="p-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" value="Delete">
                 </form>
             </section>
         <?php }
