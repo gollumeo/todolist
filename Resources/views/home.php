@@ -12,6 +12,8 @@
 </head>
 
 <body class="bg-slate-900 text-white flex flex-col items-center justify-center min-h-[100vh] ">
+<?php include '..\Resources\views\shared\header.php'; ?>
+
     <main>
         <section class="container">
             <img src="assets/img/Illustration.png" alt="cogip logo" class="illustration">
@@ -25,6 +27,8 @@
             </ul>
         </section>
     </main>
+<?php include '..\Resources\views\shared\footer.php'; ?>
+
 </body>
 
 </html>

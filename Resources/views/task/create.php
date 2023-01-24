@@ -11,8 +11,15 @@
     <title>Create a Task</title>
 </head>
 
-<body class="min-h-[100vh]">
-    <div class="hello">Hello, World!</div>
+<body class="bg-slate-900 text-white flex flex-col items-center justify-center min-h-[100vh] ">
+<?php include '..\Resources\views\shared\header.php'; ?>
+<main>
+    <div class="hello">Hello, World!
+        <img src="public/assets/img/Illustration.png" alt="">
+    </div>
+</main>
+<?php include '..\Resources\views\shared\footer.php'; ?>
+
 </body>
 
 </html>

@@ -14,14 +14,14 @@ class TaskController extends Controller
         $this->taskService = new TaskService();
     }
 
-    /* public function create()
+     public function create()
     {
         // Handle task creation
-        $task = $_POST['task'];
-        $user_id = 8;
-        $response = $this->taskService->create($task, $user_id);
-        return $this->viewTask('create', $response);
-    } */
+        // $task = $_POST['task'];
+        // $user_id = 8;
+        // $response = $this->taskService->create($task, $user_id);
+        return $this->viewTask('create');
+    } 
 
     public function show()
     {
