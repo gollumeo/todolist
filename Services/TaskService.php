@@ -26,7 +26,7 @@ class TaskService
         $newTask->setTitle($title);
         $newTask->setStatus($status);
         $newTask->setUserId($user_id);
-        $this->taskRepository->create($task, $user_id);
+        $this->taskRepository->create($newTask, $user_id);
 
         return 'Task created successfully';
     }

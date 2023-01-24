@@ -23,6 +23,8 @@ class TaskRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+
+    // vérifier la valeur de retour (array / object)
     public function findById($id)
     {
         $query = 'SELECT * FROM tasks WHERE id = :id';
