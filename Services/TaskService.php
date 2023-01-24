@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Services;
-use App\Repositories\TaskRepository;
+use App\repositories\TaskRepository;
 use App\models\Task;
 
 class TaskService
@@ -26,7 +26,7 @@ class TaskService
         $newTask->setTitle($title);
         $newTask->setStatus($status);
         $newTask->setUserId($user_id);
-        $this->taskRepository->create($task, $user_id);
+        $this->taskRepository->create($newTask, $user_id);
 
         return 'Task created successfully';
     }

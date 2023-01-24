@@ -1,33 +1,41 @@
 <?php
+
 namespace App\Core;
+
+use App\config\Config as CONFIG;
 use PDO;
 use PDOException;
 
-class Database {
+class Database
+{
     private static $instance;
     private $conn;
 
-    private function __construct() {            
+    private function __construct()
+    {
         try {
-            $this->conn = new PDO('mysql:host=' . 'db-todolist.cld0mu6jdw4b.eu-west-3.rds.amazonaws.com' . ';dbname=' . 'todolist', 'admin', 'K35zNf7ACwwDSUcvh6F5');
+            $this->conn = new PDO('mysql:host=' . CONFIG::$DB_HOST . ';dbname=' . CONFIG::$DB_NAME, CONFIG::$DB_USER, CONFIG::$DB_PASS);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             echo 'Connection Error: ' . $e->getMessage();
         }
     }
 
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (!self::$instance) {
             self::$instance = new Database();
         }
         return self::$instance;
     }
 
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->conn;
     }
 
-    public function close() {
+    public function close()
+    {
         $this->conn = null;
     }
 }
