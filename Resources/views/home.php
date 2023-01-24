@@ -11,7 +11,7 @@
     <title>To Do List</title>
 </head>
 
-<body class="bg-slate-900 text-white flex flex-col items-center justify-center min-h-[100vh] ">
+<body class="bg-slate-900 text-white flex flex-col items-center justify-center min-h-[100vh]">
 <?php include '..\Resources\views\shared\header.php'; ?>
 
     <main>
