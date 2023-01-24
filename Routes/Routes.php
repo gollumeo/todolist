@@ -17,8 +17,6 @@ $router->get('/show', function() {
     (new TaskController)->show();
 });
 
-
-
 $router->get('/create', function () {
     (new TaskController)->display();
 }); 
@@ -32,9 +30,3 @@ $router->post('/delete-task', function () {
 }); 
 
 $router->run();
-
-/* $router->get('/', function () {
-    (new HomeController)->header();
-});
-
-$router->run(); */

@@ -11,7 +11,10 @@
     <title>Create a Task</title>
 </head>
 
+
 <body class="bg-slate-900 flex flex-col items-center justify-center min-h-[100vh]">
+<?php include '..\Resources\views\shared\header.php'; ?>
+
     <main>
         <form class="flex flex-col text-black" action="/create-task" method="post">
             <label class="text-white" for="title">Title</label>
@@ -24,6 +27,8 @@
             <input class="text-white" type="submit" value="Send">
         </form>
     </main>
+
+<?php include '..\Resources\views\shared\footer.php'; ?>
 </body>
 
 </html>
