@@ -37,12 +37,17 @@ class TaskRepository
     // vérifier qu'on accède bien aux colonnes de la table user (relationnal)
     public function create(Task $task)
     {
-        $query = 'INSERT INTO tasks (task, title, status, user_id) VALUES (:task, :title, :status, :user_id)';
+        print_r($task->getTitle());
+        $query = 'INSERT INTO tasks (task, task_title, status, user_id) VALUES (:task, :title, :status, :user_id)';
         $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':task', $task->getTask());
-        $stmt->bindParam(':title', $task->getTitle());
-        $stmt->bindParam(':status', $task->getStatus());
-        $stmt->bindParam(':user_id', $task->getUserId());
+        $task_body = $task->getTask();
+        $task_title = $task->getTitle();
+        $task_status = $task->getStatus();
+        $task_user_id = $task->getUserId();
+        $stmt->bindParam(':task',$task_body);
+        $stmt->bindParam(':title', $task_title);
+        $stmt->bindParam(':status', $task_status);
+        $stmt->bindParam(':user_id', $task_user_id);
         return $stmt->execute();
     }
 

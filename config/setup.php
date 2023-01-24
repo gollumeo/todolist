@@ -1,14 +1,13 @@
 <?php
-require_once 'config/config.php';
-require_once './Core/Database.php';
 
-$db = Database::getInstance()->getConnection();
+$db =new PDO('mysql:host=' . 'db-todolist.cld0mu6jdw4b.eu-west-3.rds.amazonaws.com' . ';dbname=' . 'todolist', 'admin', 'K35zNf7ACwwDSUcvh6F5');
 
 // Tasks table
 $tasks_table = "CREATE TABLE IF NOT EXISTS tasks (
     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     task VARCHAR(255) NOT NULL,
     status VARCHAR(15) NOT NULL,
+    title VARCHAR(50) NOT NULL,
     user_id INT(11) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
     )";

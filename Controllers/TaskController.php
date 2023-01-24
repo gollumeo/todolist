@@ -14,20 +14,35 @@ class TaskController extends Controller
         $this->taskService = new TaskService();
     }
 
-    /* public function create()
+    public function createTask()
     {
         // Handle task creation
         $task = $_POST['task'];
-        $user_id = 8;
-        $response = $this->taskService->create($task, $user_id);
-        return $this->viewTask('create', $response);
-    } */
+        $title = $_POST['title'];
+        $status = $_POST['status'];
+        //$user_id = $_POST['user_id'];
+        $this->taskService->create($task, $title, $status, 8);
+        header('Location: /show');
+    }
 
     public function show()
     {
         // Retrieve and display all tasks
         $task_list = $this->taskService->getAllTasks(8);
         return $this->viewTask('show', ["task_list" => $task_list]);
+    }
+
+    public function display()
+    {
+        return $this->viewTask('create');
+    }
+
+    public function delete()
+    {
+        $id = $_POST['id'];
+        $this->taskService->delete($id);
+        header('Location: /show');
+
     }
 
     /* public function update()
@@ -40,11 +55,5 @@ class TaskController extends Controller
         return $this->viewTask('update', $response);
     }
 
-    public function delete()
-    {
-        // Handle task deletion
-        $id = $_POST['id'];
-        $response = $this->taskService->delete($id);
-        return $this->viewTask('delete', $response);
-    } */
+    */
 }
