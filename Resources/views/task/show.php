@@ -26,7 +26,9 @@
                 <h2 class="p-5"> <?php echo $task['task_title'] ?></h2><hr>
                 <p class="p-5"> <?php echo $task['task'] ?></p><hr>
                 <form method="post" action="/delete-task">
-                    <input type="text" hidden name="id" value="<?php echo $task['id'] ?>">
+                    <label>
+                        <input type="text" hidden name="id" value="<?php echo $task['id'] ?>">
+                    </label>
                     <input type="submit" class="p-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" value="Delete">
                 </form>
             </section>

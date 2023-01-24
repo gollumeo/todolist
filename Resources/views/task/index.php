@@ -21,7 +21,9 @@
     <main>
         <section class="container">
             <img src="assets/img/Illustration.png" alt="cogip logo" class="illustration">
-            <h1 class="text-gray-100">Welcome, <?php echo $name; ?>!</h1>
+            <h1 class="text-gray-100">Welcome, <?php if (isset($name)) {
+                    echo $name;
+                } ?>!</h1>
             <p>This base project is provided by Pierre N.</p>
             <ul>
                 <li><a href="https://github.com/bramus/router" target="_blank">Bramus/Router</a></li>
