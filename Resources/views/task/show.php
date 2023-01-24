@@ -13,28 +13,28 @@
     <title>List of tasks</title>
 </head>
 
-<body class="bg-slate-900 flex flex-col items-center min-h-[100vh] space-between  items-center justify-center">
-<?php include '..\Resources\views\shared\header.php'; ?>
+<body class="bg-slate-900 flex flex-col min-h-[100vh] space-between  items-center justify-center">
+    <?php include '..\Resources\views\shared\header.php'; ?>
 
-<main class="flex flex-col mb-auto mt-20 m-auto text-gray-50 w-screen  items-center justify-center">
-    <h2 class="text-2xl text-center text-gray-50">List of tasks</h2>
-    <?php if (isset($task_list)) {
-        foreach ($task_list as $task) { ?>
+    <main class="flex flex-col mb-auto mt-20 m-auto text-gray-50 w-screen  items-center justify-center">
+        <h2 class="text-2xl text-center text-gray-50">List of tasks</h2>
+        <?php if (isset($task_list)) {
+            foreach ($task_list as $task) { ?>
 
-            <section class="flex flex-col m-5 border-white border-solid border-2 w-[80%] rounded-sm">
+                <section class="flex flex-col m-5 border-white border-solid border-2 w-[80%] rounded-sm">
                 <h2 class="p-5"> <?php echo $task['status'] ?></h2><hr>
                 <h2 class="p-5"> <?php echo $task['task_title'] ?></h2><hr>
                 <p class="p-5"> <?php echo $task['task'] ?></p><hr>
-                <form method="post" action="/delete-task">
-                    <input type="text" hidden name="id" value="' . $task['id'] . '">
-                    <input type="submit" class="p-5" value="Delete">
-                </form>
-            </section>
+                    <form method="post" action="/delete-task">
+                        <input type="text" hidden name="id" value="' . $task['id'] . '">
+                        <input type="submit" class="p-5" value="Delete">
+                    </form>
+                </section>
         <?php }
-    }; ?>
-</main>
+        }; ?>
+    </main>
 
-<?php include '..\Resources\views\shared\footer.php'; ?>
+    <?php include '..\Resources\views\shared\footer.php'; ?>
 </body>
 
 </html>
