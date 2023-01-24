@@ -1,5 +1,6 @@
 <?php
-namespace App\repositories;
+ 
+ namespace App\repositories;
 use App\Core\Database;
 use App\models\Task;
 use PDO;

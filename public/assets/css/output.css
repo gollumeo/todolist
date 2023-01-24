@@ -1964,9 +1964,14 @@ video {
   color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 
+
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+
+.text-gray-50 {
+  --tw-text-opacity: 1;
+  color: rgb(249 250 251 / var(--tw-text-opacity));
 }
 
 .text-\[\#336699\]\/\[\.35\] {
