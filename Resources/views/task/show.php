@@ -21,15 +21,15 @@
         <?php if (isset($task_list)) {
             foreach ($task_list as $task) { ?>
 
-                <section class="flex flex-col m-5 border-white border-solid border-2 w-[80%] rounded-sm">
+            <section class="flex flex-col w-[80%] m-5 border-white border-solid border-2 rounded-sm">
                 <h2 class="p-5"> <?php echo $task['status'] ?></h2><hr>
                 <h2 class="p-5"> <?php echo $task['task_title'] ?></h2><hr>
                 <p class="p-5"> <?php echo $task['task'] ?></p><hr>
-                    <form method="post" action="/delete-task">
-                        <input type="text" hidden name="id" value="' . $task['id'] . '">
-                        <input type="submit" class="p-5" value="Delete">
-                    </form>
-                </section>
+                <form method="post" action="/delete-task">
+                    <input type="text" hidden name="id" value="<?php echo $task['id'] ?>">
+                    <input type="submit" class="p-5" value="Delete" class="background-slate-800">
+                </form>
+            </section>
         <?php }
         }; ?>
     </main>
