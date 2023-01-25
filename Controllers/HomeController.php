@@ -13,7 +13,7 @@ class HomeController extends Controller
     */
     public function home()
     {
-        return $this->viewHome('home', ["name" => "Guest"]);
+        return $this->viewHome('home', ["username" => "Guest"]);
     }
 
     public function home_logged_in()
@@ -21,8 +21,8 @@ class HomeController extends Controller
         if (!session_start()) {
             session_start();
         }
-        $username = isset($_SESSION['username']) ? $_SESSION['username'] : "Guest";
-        return $this->viewHome('home', ["name" => $username]);
+        $username = isset($_SESSION) ? $_SESSION['username'] : "Guest";
+        return $this->viewHome('home', ["username" => $username]);
     }
 
     public function show()
