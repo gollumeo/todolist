@@ -1,5 +1,5 @@
 <?php
-
+namespace App\repositories;
 use App\Core\Database;
 
 class UserRepository
