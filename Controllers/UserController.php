@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+session_start();
 
 use App\Core\Controller;
 use App\Services\UserService;
@@ -22,10 +23,11 @@ class UserController extends Controller
 
     public function validation()
     {
-        $username = $_POST['username'];
+        $username = !isset($_SESSION['username']) ? $_SESSION['username'] : "Guest";
+        $user_email = $_POST['user_email'];
         $user_password = $_POST['password'];
-        $task_list = $this->userService->login($username, $user_password);
-        return $this->viewTask('show', ["task_list" => $task_list]);
+        $task_list = $this->userService->login($user_email, $user_password);
+        return $this->viewHome('home', ['username' => $username]);
 
     }
 

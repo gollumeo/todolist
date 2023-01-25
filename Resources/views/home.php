@@ -17,8 +17,8 @@
     <main>
         <section class="container">
             <img src="assets/img/Illustration.png" alt="cogip logo" class="illustration">
-            <h1 class="text-gray-100">Welcome, <?php if (isset($name)) {
-                    echo $name;
+            <h1 class="text-gray-100">Welcome, <?php if (isset($username)) {
+                    echo $username;
                 } ?>!</h1>
             <p>This base project is provided by Pierre N.</p>
             <ul>

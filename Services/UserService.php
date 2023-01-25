@@ -17,13 +17,13 @@ class UserService
         $this->task_service = new TaskService();
     }
 
-    public function display()
-    {
-        return $this->viewUser('register');
-    }
-
     public function register($username, $user_email, $password)
     {
+        // Sanitize input
+        $username = filter_var($username, FILTER_SANITIZE_STRING);
+        $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
+        $password = filter_var($password, FILTER_SANITIZE_STRING);
+
         // Validate input
         if (empty($username) || empty($password)) {
             return 'Username and password are required';
@@ -48,8 +48,14 @@ class UserService
         return 'Registration successful';
     }
 
+
     public function login($user_email, $password)
     {
+
+        // Sanitize input
+        $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
+        $password = filter_var($password, FILTER_SANITIZE_STRING);
+
         // Validate input
         if (empty($user_email) || empty($password)) {
             return 'Username and password are required';
@@ -69,12 +75,15 @@ class UserService
             session_start();
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['$user_email'] = $user_email;
-            return $this->task_service->getAllTasks($user['id']);
+            $_SESSION['$username'] = $user['username'];
+            echo $user['username'];
+//            return $this->task_service->getAllTasks($user['id']);
+            return $user['username'];
         } else {
-            echo  $user['email'];
             return 'Invalid username or password';
         }
     }
+
 
     public function logout()
     {

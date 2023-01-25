@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Core\Controller;
 
+use App\Core\Controller;
 
 
 class HomeController extends Controller
@@ -13,10 +13,18 @@ class HomeController extends Controller
     */
     public function home()
     {
-        //$username = isset($_POST['username']) ? $_POST['username'] : "Guest";
-        return $this->viewHome('home', ["name" => ""]);
+        return $this->viewHome('home', ["name" => "Guest"]);
     }
-    
+
+    public function home_logged_in()
+    {
+        if (!session_start()) {
+            session_start();
+        }
+        $username = isset($_SESSION['username']) ? $_SESSION['username'] : "Guest";
+        return $this->viewHome('home', ["name" => $username]);
+    }
+
     public function show()
     {
         return $this->viewTask('show');

@@ -15,17 +15,17 @@
 <main>
     <form action="/validation" method="post">
         <div>
-            <label for="username">Identifiant
-                <input type="text" name="username">
+            <label for="user_email">Identifiant
+                <input type="text" name="user_email" required>
             </label>
         </div>
         <div>
             <label for="password">Mot de passe
-                <input type="password" name="password">
+                <input type="password" name="password" required>
             </label>
         </div>
         <div>
-            <input type="submit" value="Se connecter">
+            <input type="submit" value="Log in">
         </div>
     </form>
 </main>
