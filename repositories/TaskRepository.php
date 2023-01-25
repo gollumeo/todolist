@@ -38,7 +38,6 @@ class TaskRepository
     // vérifier qu'on accède bien aux colonnes de la table user (relationnal)
     public function create(Task $task)
     {
-        print_r($task->getTitle());
         $query = 'INSERT INTO tasks (task, task_title, status, user_id) VALUES (:task, :title, :status, :user_id)';
         $stmt = $this->db->prepare($query);
         $task_body = $task->getTask();
@@ -52,6 +51,7 @@ class TaskRepository
         return $stmt->execute();
     }
 
+    //todo
     public function update(Task $task)
     {
         $query = 'UPDATE tasks SET task = :task, title=:title, status = :status WHERE id = :id';
