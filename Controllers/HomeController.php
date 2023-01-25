@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Core\Controller;
+
 
 
 class HomeController extends Controller
@@ -11,7 +13,8 @@ class HomeController extends Controller
     */
     public function home()
     {
-        return $this->viewHome('home', ["name" => "Guest"]);
+        $username = isset($_POST['username']) ? $_POST['username'] : "Guest";
+        return $this->viewHome('home', ["name" => ($username)]);
     }
     
     public function show()

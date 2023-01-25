@@ -1,6 +1,10 @@
 <?php
-include_once 'repositories/UserRepository.php';
-include_once './models/User.php';
+
+namespace App\Services;
+
+use App\Controllers\UserController;
+use App\repositories\UserRepository;
+use App\models\User;
 
 class UserService
 {
@@ -9,6 +13,11 @@ class UserService
     public function __construct()
     {
         $this->userRepository = new UserRepository();
+    }
+
+    public function display()
+    {
+        return $this->viewUser('register');
     }
 
     public function register($username, $user_email, $password)
@@ -52,6 +61,7 @@ class UserService
             // Start a new session
             session_start();
             $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $username;
             return 'Login successful';
         } else {
             return 'Invalid username or password';
