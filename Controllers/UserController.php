@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-session_start();
 
 use App\Core\Controller;
 use App\Services\UserService;
@@ -22,9 +21,17 @@ class UserController extends Controller
 
     public function validation()
     {
-        $this->userService->login();
-        header('Location: /home');
+        $user_email = $_POST['user_email'];
+        $password = $_POST['password'];
+        if ($this->userService->login($user_email, $password)) {
+
+            header('Location: /home');
+        } else {
+            echo "error";
+        }
+
     }
+
 
     public function login()
     {
