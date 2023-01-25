@@ -13,11 +13,9 @@ $router->get('/', function () {
     (new HomeController)->home();
 });
 
-
 $router->get('/home', function () {
     (new HomeController)->home_logged_in();
 });
-
 
 $router->get('/show', function () {
     (new TaskController)->show();
@@ -41,11 +39,6 @@ $router->get('/signing', function () {
 $router->get('/login', function () {
     (new UserController)->login();
 });
-
-$router->post('/validation', function () {
-    (new UserController)->validation();
-});
-
 
 $router->post('/register-user', function () {
     (new UserController)->createUser();

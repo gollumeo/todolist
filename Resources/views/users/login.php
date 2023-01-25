@@ -13,7 +13,7 @@
 <?php include '..\Resources\views\shared\header.php'; ?>
 
 <main>
-    <form action="/validation" method="post">
+    <form action="/home" method="post">
         <div>
             <label for="user_email">Identifiant
                 <input type="text" name="user_email" required>

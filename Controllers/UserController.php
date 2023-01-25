@@ -22,13 +22,8 @@ class UserController extends Controller
 
     public function validation()
     {
-        $username = !isset($_SESSION['username']) ? $_SESSION['username'] : "Guest";
-        $user_email = $_POST['user_email'];
-        $user_password = $_POST['password'];
-        $task_list = $this->userService->login($user_email, $user_password);
+        $this->userService->login();
         header('Location: /home');
-
-
     }
 
     public function login()
@@ -45,6 +40,6 @@ class UserController extends Controller
         $password = $_POST['password'];
         //$user_id = $_POST['user_id'];
         $this->userService->register($username, $user_email, $password);
-        header('Location: /validation');
+        header('Location: /home');
     }
 }
