@@ -40,6 +40,10 @@ $router->get('/login', function () {
     (new UserController)->login();
 });
 
+$router->post('/validate', function () {
+    (new UserController)->validation();
+});
+
 $router->post('/register-user', function () {
     (new UserController)->createUser();
 });

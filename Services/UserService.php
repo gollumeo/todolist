@@ -54,34 +54,29 @@ class UserService
 
         // Sanitize input
         $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
-        $hash = password_hash($password, PASSWORD_BCRYPT);
-
-        $password = $hash;
 
         // Validate input
         if (empty($user_email) || empty($password)) {
-            return 'Username and password are required';
+            return false;
         }
 
         // Find the user by username
         $user = $this->userRepository->findByUserEmail($user_email);
+
         if (!$user) {
-            return 'Invalid username or password';
+            return false;
         }
         // Check if user exists and verify the password
-
         $hash = password_hash($user['password'], PASSWORD_BCRYPT);
-
         if (password_verify($password, $hash)) {
-            // Start a new session
             session_start();
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['$user_email'] = $user_email;
-            $_SESSION['$username'] = $user['username'];
+            $_SESSION['user_email'] = $user_email;
+            $_SESSION['username'] = $user['username'];
 //            return $this->task_service->getAllTasks($user['id']);
-            return $user['username'];
+            return true;
         } else {
-            return 'Invalid username or password';
+            return false;
         }
     }
 
@@ -93,7 +88,7 @@ class UserService
         session_destroy();
         return 'Logout successful';
     }
-    /* 
+    /*
     public function updatePassword($id, $oldPassword, $newPassword, $confirmPassword)
     {
         // Validate input
