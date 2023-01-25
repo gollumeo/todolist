@@ -54,7 +54,9 @@ class UserService
 
         // Sanitize input
         $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
-        $password = filter_var($password, FILTER_SANITIZE_STRING);
+        $hash = password_hash($password, PASSWORD_BCRYPT);
+
+        $password = $hash;
 
         // Validate input
         if (empty($user_email) || empty($password)) {
@@ -76,7 +78,6 @@ class UserService
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['$user_email'] = $user_email;
             $_SESSION['$username'] = $user['username'];
-            echo $user['username'];
 //            return $this->task_service->getAllTasks($user['id']);
             return $user['username'];
         } else {

@@ -15,7 +15,6 @@ class TaskService
     
     public function create($task, $title, $status, $user_id)
     {
-        echo "test";
         // Validate input
         if (empty($task)) {
             return 'Task is required';

@@ -6,7 +6,6 @@ session_start();
 use App\Core\Controller;
 use App\Services\UserService;
 
-
 class UserController extends Controller
 {
     private $userService;
@@ -27,7 +26,8 @@ class UserController extends Controller
         $user_email = $_POST['user_email'];
         $user_password = $_POST['password'];
         $task_list = $this->userService->login($user_email, $user_password);
-        return $this->viewHome('home', ['username' => $username]);
+        header('Location: /home');
+
 
     }
 

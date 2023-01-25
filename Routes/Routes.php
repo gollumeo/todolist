@@ -13,6 +13,12 @@ $router->get('/', function () {
     (new HomeController)->home();
 });
 
+
+$router->get('/home', function () {
+    (new HomeController)->home_logged_in();
+});
+
+
 $router->get('/show', function () {
     (new TaskController)->show();
 });
