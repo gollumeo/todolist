@@ -2,17 +2,19 @@
 
 namespace App\Services;
 
-use App\Controllers\UserController;
 use App\repositories\UserRepository;
 use App\models\User;
+use App\Services\TaskService;
 
 class UserService
 {
     private $userRepository;
+    private $task_service;
 
     public function __construct()
     {
         $this->userRepository = new UserRepository();
+        $this->task_service = new TaskService();
     }
 
     public function display()
@@ -49,21 +51,27 @@ class UserService
     public function login($user_email, $password)
     {
         // Validate input
-        if (empty($username) || empty($password)) {
+        if (empty($user_email) || empty($password)) {
             return 'Username and password are required';
         }
 
         // Find the user by username
         $user = $this->userRepository->findByUserEmail($user_email);
-
+        if (!$user) {
+            return 'Invalid username or password';
+        }
         // Check if user exists and verify the password
-        if ($user && password_verify($password, $user['password'])) {
+
+        $hash = password_hash($user['password'], PASSWORD_BCRYPT);
+
+        if (password_verify($password, $hash)) {
             // Start a new session
             session_start();
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $username;
-            return 'Login successful';
+            $_SESSION['$user_email'] = $user_email;
+            return $this->task_service->getAllTasks($user['id']);
         } else {
+            echo  $user['email'];
             return 'Invalid username or password';
         }
     }

@@ -13,8 +13,8 @@ class HomeController extends Controller
     */
     public function home()
     {
-        $username = isset($_POST['username']) ? $_POST['username'] : "Guest";
-        return $this->viewHome('home', ["name" => ($username)]);
+        //$username = isset($_POST['username']) ? $_POST['username'] : "Guest";
+        return $this->viewHome('home', ["name" => ""]);
     }
     
     public function show()
