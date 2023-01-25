@@ -28,6 +28,9 @@
                 <li>redirect() function</li>
             </ul>
         </section>
+        <pre>
+
+        </pre>
     </main>
 <?php include '..\Resources\views\shared\footer.php'; ?>
 
